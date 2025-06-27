@@ -2,32 +2,29 @@
 
 ## Deskripsi
 
-Proyek ini merupakan bagian dari tugas akhir mata kuliah **Visi Komputer**. Tujuan utama proyek adalah melakukan **peningkatan kualitas citra digital gelap** dengan menerapkan dua metode klasik dalam pengolahan citra:
+Proyek ini merupakan bagian dari tugas akhir mata kuliah **Visi Komputer**. Tujuan utama proyek adalah melakukan **peningkatan kualitas citra malam hari** dengan menerapkan dua metode klasik dalam pengolahan citra:
 
 - **Histogram Equalization (HE)**
 - **Contrast Limited Adaptive Histogram Equalization (CLAHE)**
 
 Perbandingan dilakukan secara visual dan kuantitatif menggunakan metrik:
 
-- Mean dan Standard Deviation
-- Contrast Ratio dan Enhancement Factor
+- (MSE) Mean Squared Error
 - PSNR (Peak Signal-to-Noise Ratio)
-- SSIM (Structural Similarity Index)
 
 ---
 
 ## Tools & Library
 
 - Python 3.x
-- OpenCV (`cv2`)
+- Pillow (`PIL`)
 - NumPy
 - Matplotlib
-- scikit-image (`skimage.metrics`)
 
 Instalasi:
 
 ```bash
-pip install opencv-python numpy matplotlib scikit-image
+pip install pillow numpy matplotlib
 ```
 
 ---
@@ -51,7 +48,6 @@ pip install opencv-python numpy matplotlib scikit-image
    - Import Library
    - Definisi Kelas `ImageEnhancer`
    - Fungsi pemrosesan dan plotting
-   - Buat citra sampel (jika tidak ada)
    - Eksekusi utama
 
 ---
@@ -63,13 +59,13 @@ Visualisasi dan histogram disimpan sebagai `.png`, serta metrik performa ditampi
 ### Contoh Output:
 
 - CLAHE memberikan kontras yang lebih seimbang secara lokal
-- Histogram Equalization meningkatkan kontras global tapi bisa menimbulkan noise
+- Histogram Equalization meningkatkan kontras global
 
 ---
 
 ## Kesimpulan
 
-Metode **CLAHE** menghasilkan peningkatan kualitas citra yang lebih stabil dan efektif untuk citra dengan distribusi intensitas yang tidak merata. Sementara **Histogram Equalization** cocok untuk peningkatan global namun rentan terhadap over-enhancement.
+Metode **CLAHE** menghasilkan peningkatan kualitas citra yang lebih stabil dan efektif untuk citra dengan distribusi intensitas yang tidak merata sehingga citra yang dihasilkan lebih terang namun tetap citra malam. Sementara **Histogram Equalization** cocok untuk peningkatan global namun rentan terhadap over-enhancement sehingga citra yang dihasilkan terlalu terang hingga seperti citra siang hari.
 
 ---
 
